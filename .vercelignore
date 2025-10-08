@@ -1,0 +1,75 @@
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files (don't deploy .env with secrets)
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory
+coverage
+.nyc_output
+
+# IDE files
+.vscode
+.idea
+*.swp
+*.swo
+*.sublime-*
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Docker files (not needed for Vercel)
+Dockerfile
+.dockerignore
+docker-compose.yml
+DOCKER.md
+
+# Documentation
+README.md
+*.md
+
+# Temporary and backup files
+tmp/
+temp/
+*.zip
+*-backup.zip
+*backup.zip
+
+# Analysis and test files
+LPU_DFD_Diagram.html
+LPU_Timetable_Analysis.html
+
+# Local development only
+nodemon.json
+
+# Cache and data directories will be stored in Vercel KV/Database
+# For initial deployment, we'll include the data folder structure
+# but these files should be managed via environment or cloud storage
+src/data/*.json
+src/data/*.txt

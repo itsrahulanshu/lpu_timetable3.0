@@ -1,0 +1,38 @@
+{
+  "name": "lpu-timetable-pwa",
+  "version": "3.1.0",
+  "description": "Optimized PWA for LPU timetable with offline support, notifications, and auto-refresh",
+  "main": "api/index.js",
+  "scripts": {
+    "dev": "node dev-server.js",
+    "start": "node dev-server.js",
+    "vercel-build": "echo 'Build successful - PWA ready'",
+    "test": "echo 'No tests specified'"
+  },
+  "dependencies": {
+    "@antiadmin/anticaptchaofficial": "^1.0.53",
+    "axios": "^1.6.0",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.2",
+    "express": "^4.21.2"
+  },
+  "keywords": [
+    "lpu",
+    "timetable",
+    "pwa",
+    "offline",
+    "notifications",
+    "serverless",
+    "vercel",
+    "progressive-web-app"
+  ],
+  "author": "itsrahulanshu",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/itsrahulanshu/timelpu.git"
+  }
+}

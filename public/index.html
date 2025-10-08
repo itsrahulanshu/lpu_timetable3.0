@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>LPU</title>
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="LPU">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/icon-512.png">
+    <link rel="shortcut icon" href="assets/icons/icon-48.png">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css?v=3.1.0">
+    
+    <!-- Remove OneSignal - using native notifications now -->
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading your timetable...</p>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🎓 LPU Schedule</h1>
+                <div id="lastUpdateInfo" class="last-update-info">
+                    Last updated: <span id="lastUpdateTime">Loading...</span>
+                </div>
+            </div>
+            <div class="header-buttons">
+                <button id="notificationBtn" class="notification-btn" title="Toggle Notifications">
+                    <span id="notificationIcon">🔔</span>
+                </button>
+                <button id="darkModeBtn" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
+                <button id="refreshBtn" class="refresh-btn"><span>🔄</span></button>
+            </div>
+        </header>
+
+        <!-- Refresh Notice -->
+        <div class="refresh-notice">
+            💡 Only refresh if needed — save running cost 🤕💰
+        </div>
+
+        <!-- Notification Info -->
+        <div class="notification-info" id="notificationInfo">
+            🔔 Enable notifications to get alerts 10 minutes before any room or class changes
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalClasses">0</span>
+                <span class="stat-label">Total Classes</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="todayClasses">0</span>
+                <span class="stat-label">Today</span>
+            </div>
+        </div>
+
+        <!-- Day Filter -->
+        <div class="day-filter">
+            <button class="day-btn active" data-day="all">All</button>
+            <button class="day-btn" data-day="Monday">Mon</button>
+            <button class="day-btn" data-day="Tuesday">Tue</button>
+            <button class="day-btn" data-day="Wednesday">Wed</button>
+            <button class="day-btn" data-day="Thursday">Thu</button>
+            <button class="day-btn" data-day="Friday">Fri</button>
+            <button class="day-btn" data-day="Saturday">Sat</button>
+        </div>
+
+        <!-- Timetable -->
+        <div id="timetableContainer" class="timetable">
+            <!-- Classes will be loaded here -->
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>⚠️ Error</h3>
+            <p id="errorMessage">Something went wrong</p>
+            <div class="modal-actions">
+                <button id="retryBtn" class="btn-primary">Retry</button>
+                <button id="closeModal" class="btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Permission Modal -->
+    <div id="notificationModal" class="modal hidden">
+        <div class="modal-content notification-modal-content">
+            <h3>🔔 Enable Notifications</h3>
+            <div class="notification-benefits">
+                <p><strong>Get alerts 10 minutes before:</strong></p>
+                <ul>
+                    <li>✅ Any class starts</li>
+                    <li>✅ Room changes</li>
+                    <li>✅ Schedule updates</li>
+                </ul>
+                <p class="notification-note">📱 Works even when app is closed or offline!</p>
+            </div>
+            <div class="modal-actions">
+                <button id="enableNotificationBtn" class="btn-primary">Enable Notifications</button>
+                <button id="skipNotificationBtn" class="btn-secondary">Maybe Later</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/db.js?v=3.1.0"></script>
+    <script src="assets/js/notifications.js?v=3.1.0"></script>
+    <script src="assets/js/app.js?v=3.1.0"></script>
+    <script>
+        // Register Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').then((registration) => {
+                console.log('✅ Service Worker registered successfully');
+                
+                // Check for updates immediately
+                registration.update();
+                
+                // Listen for updates
+                registration.addEventListener('updatefound', () => {
+                    console.log('🔄 New service worker version found');
+                });
+            }).catch((error) => {
+                console.error('❌ Service Worker registration failed:', error);
+            });
+        }
+    </script>
+</body>
+</html>
