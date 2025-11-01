@@ -22,26 +22,18 @@ body{background:#e2e8f0;padding:20px}
 .header-buttons{display:flex;gap:8px}
 .last-update-info{color:var(--text-secondary);font-size:12px;margin-top:2px}
 #lastUpdateTime{font-weight:500;color:var(--text-secondary)}
-.refresh-btn,.dark-mode-btn,.notification-btn{background:var(--accent-secondary);color:#fff;border:none;padding:12px;border-radius:12px;font-size:16px;cursor:pointer;transition:all 0.2s;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
+/* TODO: Re-add notification button styles when OneSignal integration is implemented */
+.refresh-btn,.dark-mode-btn{background:var(--accent-secondary);color:#fff;border:none;padding:12px;border-radius:12px;font-size:16px;cursor:pointer;transition:all 0.2s;width:44px;height:44px;display:flex;align-items:center;justify-content:center}
 .dark-mode-btn{background:#64748b}
-.notification-btn{background:#10b981;position:relative}
-.notification-btn.disabled{background:#ef4444;opacity:0.8}
-.notification-btn.disabled #notificationIcon::after{content:'';position:absolute;width:2px;height:20px;background:#fff;transform:rotate(45deg);top:50%;left:50%;margin:-10px 0 0 -1px}
-.refresh-btn:hover,.dark-mode-btn:hover,.notification-btn:hover{background:#4f46e5;transform:scale(1.05)}
+.refresh-btn:hover,.dark-mode-btn:hover{background:#4f46e5;transform:scale(1.05)}
 .dark-mode-btn:hover{background:#475569}
-.notification-btn:hover{background:#059669}
-.notification-btn.disabled:hover{background:#dc2626}
-.refresh-btn:active,.dark-mode-btn:active,.notification-btn:active{transform:scale(0.95)}
+.refresh-btn:active,.dark-mode-btn:active{transform:scale(0.95)}
 .refresh-btn.loading{position:relative;pointer-events:none;opacity:0.7}
 .refresh-btn.loading::before{content:'';position:absolute;top:50%;left:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border:2px solid rgba(255,255,255,0.3);border-top:2px solid #fff;border-radius:50%;animation:spin 1s linear infinite}
 .refresh-btn.loading span{opacity:0}
 .refresh-notice{background:linear-gradient(135deg,#fef3c7 0%,#fde68a 100%);color:#92400e;font-size:13px;font-weight:500;padding:10px 16px;border-radius:12px;text-align:center;margin:-8px 0 12px 0;box-shadow:0 2px 8px rgba(251,191,36,0.2);border:1px solid #fbbf24}
 .dark-mode .refresh-notice{background:linear-gradient(135deg,#78350f 0%,#92400e 100%);color:#fef3c7;border-color:#92400e;box-shadow:0 2px 8px rgba(120,53,15,0.3)}
-.notification-info{background:linear-gradient(135deg,#dbeafe 0%,#bfdbfe 100%);color:#1e40af;font-size:13px;font-weight:500;padding:10px 16px;border-radius:12px;text-align:center;position:fixed;bottom:20px;left:16px;right:16px;z-index:100;box-shadow:0 8px 24px rgba(59,130,246,0.3);border:1px solid #60a5fa;animation:slideInFromBottom 0.8s ease-out,slideOutToBottom 0.8s ease-in 10s forwards;transform:translateY(0)}
-.notification-info.hidden{animation:slideOutToBottom 0.5s ease-in forwards}
-@keyframes slideInFromBottom{0%{transform:translateY(150px);opacity:0}100%{transform:translateY(0);opacity:1}}
-@keyframes slideOutToBottom{0%{transform:translateY(0);opacity:1}100%{transform:translateY(150px);opacity:0}}
-.dark-mode .notification-info{background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 100%);color:#dbeafe;border-color:#1e40af;box-shadow:0 2px 8px rgba(30,58,138,0.3)}
+/* TODO: Re-add notification info banner styles when OneSignal integration is implemented */
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
 .stat-item{background:var(--card-bg);padding:12px;border-radius:12px;text-align:center;box-shadow:0 1px 3px var(--shadow);border:1px solid var(--border-color)}
 .stat-number{display:block;font-size:28px;font-weight:700;color:var(--accent-primary);line-height:1}
@@ -125,16 +117,7 @@ body{background:#e2e8f0;padding:20px}
 .modal-content h3{font-size:18px;margin-bottom:12px;color:#ef4444}
 .modal-content p{color:var(--text-secondary);margin-bottom:24px;line-height:1.6}
 .modal-actions{display:flex;gap:12px;justify-content:center}
-.notification-modal-content h3{color:var(--accent-primary)!important}
-.notification-benefits{text-align:left;margin-bottom:20px}
-.notification-benefits p{color:var(--text-primary);margin-bottom:8px}
-.notification-benefits strong{color:var(--accent-secondary)}
-.notification-benefits ul{list-style:none;padding:0;margin:12px 0}
-.notification-benefits li{padding:8px 0;color:#475569;font-size:14px}
-.notification-note{background:#dbeafe;color:#1e40af;padding:10px;border-radius:8px;font-size:13px;font-weight:500;margin-top:16px}
-.dark-mode .notification-modal-content h3{color:#10b981!important}
-.dark-mode .notification-benefits p{color:#e2e8f0}
-.dark-mode .notification-benefits strong{color:#a78bfa}
+/* TODO: Re-add notification modal styles when OneSignal integration is implemented */
 .welcome-content{text-align:left;margin-bottom:20px}
 .welcome-content p{color:var(--text-primary);margin-bottom:12px;font-weight:500}
 .welcome-content ol{list-style:decimal;padding-left:20px;margin:12px 0}
@@ -147,8 +130,7 @@ body{background:#e2e8f0;padding:20px}
 .dark-mode .instruction-note p{color:#93c5fd!important}
 .dark-mode .welcome-content p{color:#e2e8f0}
 .dark-mode .welcome-content li{color:#b0b0b0}
-.dark-mode .notification-benefits li{color:#cbd5e1}
-.dark-mode .notification-note{background:#1e3a8a;color:#dbeafe}
+/* TODO: Re-add dark mode notification styles when OneSignal integration is implemented */
 .btn-primary{background:var(--accent-primary);color:#fff;border:none;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s}
 .btn-primary:hover{background:#45a049;transform:scale(1.02)}
 .btn-secondary{background:var(--border-color);color:var(--text-secondary);border:none;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s}

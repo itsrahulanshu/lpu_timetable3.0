@@ -7,7 +7,7 @@ A modern Progressive Web App for LPU students to access their timetables with of
 - **📱 Progressive Web App** - Install on any device, works like a native app
 - **🔄 Smart Auto-Refresh** - Automatically updates timetable data
 - **📴 Offline Support** - Access your timetable even without internet
-- **🔔 Smart Notifications** - Get notified about upcoming classes
+- **🔔 Smart Notifications** - *(Temporarily disabled - OneSignal integration pending)*
 - **🌙 Dark Mode** - Easy on the eyes with automatic theme switching
 - **⚡ Fast & Responsive** - Optimized for all screen sizes
 
@@ -59,8 +59,9 @@ A modern Progressive Web App for LPU students to access their timetables with of
 
 1. **First Visit**: Enter your LPU registration number
 2. **Install PWA**: Click "Add to Home Screen" when prompted
-3. **Enable Notifications**: Allow notifications for class reminders
-4. **Enjoy**: Your timetable updates automatically!
+3. **Enjoy**: Your timetable updates automatically!
+
+> **Note**: Notification functionality is temporarily disabled while we implement OneSignal integration for better reliability.
 
 ## 🛠️ Tech Stack
 

@@ -7,7 +7,8 @@ class TimetableApp {
         this.autoRefreshInterval = null;
         this.darkMode = this.getDarkModePreference();
         this.db = window.TimetableDB;
-        this.notificationManager = window.NotificationManager;
+        // TODO: Re-initialize notification manager when OneSignal integration is implemented
+        // this.notificationManager = window.NotificationManager;
         this.lastManualRefresh = 0;
         this.REFRESH_COOLDOWN = 10 * 60 * 1000; // 10 minutes in milliseconds
         
@@ -37,23 +38,21 @@ class TimetableApp {
             // Initialize IndexedDB
             await this.db.init();
             
-            // Initialize notification system
-            await this.notificationManager.init();
+            // TODO: Re-initialize notification system when OneSignal integration is implemented
+            // await this.notificationManager.init();
+            // const notificationEnabled = this.notificationManager.isEnabled();
+            // this.updateNotificationButton(notificationEnabled);
+            // this.updateNotificationInfo(notificationEnabled);
             
-            // Update notification button state
-            const notificationEnabled = this.notificationManager.isEnabled();
-            this.updateNotificationButton(notificationEnabled);
-            this.updateNotificationInfo(notificationEnabled);
-            
-            // Auto-hide notification info after 10 seconds if not enabled
-            if (!notificationEnabled) {
-                setTimeout(() => {
-                    const info = document.getElementById('notificationInfo');
-                    if (info && !this.notificationManager.isEnabled()) {
-                        info.classList.add('hidden');
-                    }
-                }, 10000); // 10 seconds
-            }
+            // TODO: Re-implement auto-hide notification info when OneSignal is integrated
+            // if (!notificationEnabled) {
+            //     setTimeout(() => {
+            //         const info = document.getElementById('notificationInfo');
+            //         if (info && !this.notificationManager.isEnabled()) {
+            //             info.classList.add('hidden');
+            //         }
+            //     }, 10000); // 10 seconds
+            // }
             
             // Load timetable data (from IndexedDB or API)
             await this.loadTimetableData();
@@ -83,10 +82,10 @@ class TimetableApp {
             this.refreshTimetable();
         });
 
-        // Notification toggle button
-        document.getElementById('notificationBtn').addEventListener('click', () => {
-            this.toggleNotifications();
-        });
+        // TODO: Re-add notification toggle button event handler when OneSignal is implemented
+        // document.getElementById('notificationBtn').addEventListener('click', () => {
+        //     this.toggleNotifications();
+        // });
 
         // Day filter buttons
         document.querySelectorAll('.day-btn').forEach(btn => {
@@ -128,21 +127,20 @@ class TimetableApp {
             }
         });
 
-        // Notification modal buttons
-        document.getElementById('enableNotificationBtn').addEventListener('click', () => {
-            this.enableNotificationsFromModal();
-        });
+        // TODO: Re-add notification modal event handlers when OneSignal is implemented
+        // document.getElementById('enableNotificationBtn').addEventListener('click', () => {
+        //     this.enableNotificationsFromModal();
+        // });
 
-        document.getElementById('skipNotificationBtn').addEventListener('click', () => {
-            this.hideNotificationModal();
-        });
+        // document.getElementById('skipNotificationBtn').addEventListener('click', () => {
+        //     this.hideNotificationModal();
+        // });
 
-        // Close notification modal on backdrop click
-        document.getElementById('notificationModal').addEventListener('click', (e) => {
-            if (e.target.id === 'notificationModal') {
-                this.hideNotificationModal();
-            }
-        });
+        // document.getElementById('notificationModal').addEventListener('click', (e) => {
+        //     if (e.target.id === 'notificationModal') {
+        //         this.hideNotificationModal();
+        //     }
+        // });
     }
 
     async loadTimetableData(isAutoRefresh = false) {
@@ -849,83 +847,89 @@ class TimetableApp {
         this.updateDarkModeButton();
     }
 
-    async toggleNotifications() {
-        try {
-            const currentState = this.notificationManager.isEnabled();
-            
-            if (!currentState) {
-                // Show informative modal before enabling
-                this.showNotificationModal();
-            } else {
-                // Disable directly
-                const isEnabled = await this.notificationManager.toggleNotifications();
-                this.updateNotificationButton(isEnabled);
-                this.updateNotificationInfo(isEnabled);
-                this.showToast('🔕 Notifications disabled.');
-            }
-        } catch (error) {
-            console.error('Error toggling notifications:', error);
-            this.showErrorModal('Failed to toggle notifications. Please check browser permissions.');
-        }
-    }
+    // TODO: Re-implement toggleNotifications method when OneSignal integration is implemented
+    // async toggleNotifications() {
+    //     try {
+    //         const currentState = this.notificationManager.isEnabled();
+    //         
+    //         if (!currentState) {
+    //             // Show informative modal before enabling
+    //             this.showNotificationModal();
+    //         } else {
+    //             // Disable directly
+    //             const isEnabled = await this.notificationManager.toggleNotifications();
+    //             this.updateNotificationButton(isEnabled);
+    //             this.updateNotificationInfo(isEnabled);
+    //             this.showToast('🔕 Notifications disabled.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error toggling notifications:', error);
+    //         this.showErrorModal('Failed to toggle notifications. Please check browser permissions.');
+    //     }
+    // }
 
-    async enableNotificationsFromModal() {
-        try {
-            this.hideNotificationModal();
-            const isEnabled = await this.notificationManager.toggleNotifications();
-            this.updateNotificationButton(isEnabled);
-            this.updateNotificationInfo(isEnabled);
-            
-            if (isEnabled) {
-                this.showToast('🔔 Notifications enabled! You\'ll get alerts 10 minutes before any room or class changes.');
-            }
-        } catch (error) {
-            console.error('Error enabling notifications:', error);
-            this.showErrorModal('Failed to enable notifications. Please check browser permissions.');
-        }
-    }
+    // TODO: Re-implement enableNotificationsFromModal method when OneSignal integration is implemented
+    // async enableNotificationsFromModal() {
+    //     try {
+    //         this.hideNotificationModal();
+    //         const isEnabled = await this.notificationManager.toggleNotifications();
+    //         this.updateNotificationButton(isEnabled);
+    //         this.updateNotificationInfo(isEnabled);
+    //         
+    //         if (isEnabled) {
+    //             this.showToast('🔔 Notifications enabled! You\'ll get alerts 10 minutes before any room or class changes.');
+    //         }
+    //     } catch (error) {
+    //         console.error('Error enabling notifications:', error);
+    //         this.showErrorModal('Failed to enable notifications. Please check browser permissions.');
+    //     }
+    // }
 
-    updateNotificationButton(isEnabled) {
-        const btn = document.getElementById('notificationBtn');
-        const icon = document.getElementById('notificationIcon');
-        
-        if (btn && icon) {
-            if (isEnabled) {
-                btn.classList.remove('disabled');
-                btn.title = 'Notifications Enabled - Click to Disable';
-                icon.textContent = '🔔';
-            } else {
-                btn.classList.add('disabled');
-                btn.title = 'Notifications Disabled - Click to Enable';
-                icon.textContent = '🔕';
-            }
-        }
-    }
+    // TODO: Re-implement updateNotificationButton method when OneSignal integration is implemented
+    // updateNotificationButton(isEnabled) {
+    //     const btn = document.getElementById('notificationBtn');
+    //     const icon = document.getElementById('notificationIcon');
+    //     
+    //     if (btn && icon) {
+    //         if (isEnabled) {
+    //             btn.classList.remove('disabled');
+    //             btn.title = 'Notifications Enabled - Click to Disable';
+    //             icon.textContent = '🔔';
+    //         } else {
+    //             btn.classList.add('disabled');
+    //             btn.title = 'Notifications Disabled - Click to Enable';
+    //             icon.textContent = '🔕';
+    //         }
+    //     }
+    // }
 
-    updateNotificationInfo(isEnabled) {
-        const info = document.getElementById('notificationInfo');
-        if (info) {
-            if (isEnabled) {
-                info.classList.add('hidden');
-            } else {
-                info.classList.remove('hidden');
-            }
-        }
-    }
+    // TODO: Re-implement updateNotificationInfo method when OneSignal integration is implemented
+    // updateNotificationInfo(isEnabled) {
+    //     const info = document.getElementById('notificationInfo');
+    //     if (info) {
+    //         if (isEnabled) {
+    //             info.classList.add('hidden');
+    //         } else {
+    //             info.classList.remove('hidden');
+    //         }
+    //     }
+    // }
 
-    showNotificationModal() {
-        const modal = document.getElementById('notificationModal');
-        if (modal) {
-            modal.classList.remove('hidden');
-        }
-    }
+    // TODO: Re-implement showNotificationModal method when OneSignal integration is implemented
+    // showNotificationModal() {
+    //     const modal = document.getElementById('notificationModal');
+    //     if (modal) {
+    //         modal.classList.remove('hidden');
+    //     }
+    // }
 
-    hideNotificationModal() {
-        const modal = document.getElementById('notificationModal');
-        if (modal) {
-            modal.classList.add('hidden');
-        }
-    }
+    // TODO: Re-implement hideNotificationModal method when OneSignal integration is implemented
+    // hideNotificationModal() {
+    //     const modal = document.getElementById('notificationModal');
+    //     if (modal) {
+    //         modal.classList.add('hidden');
+    //     }
+    // }
 
     showToast(message) {
         // Create toast element

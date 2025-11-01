@@ -1,5 +1,9 @@
 const axios = require('axios');
 
+// TODO: This server-side notification module is ready for OneSignal integration
+// When implementing OneSignal, ensure the client-side notification UI is re-enabled
+// and properly connected to this backend service
+
 class NotificationManager {
     constructor() {
         this.appId = process.env.ONESIGNAL_APP_ID;

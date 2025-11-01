@@ -46,9 +46,7 @@
                 </div>
             </div>
             <div class="header-buttons">
-                <button id="notificationBtn" class="notification-btn" title="Toggle Notifications">
-                    <span id="notificationIcon">🔔</span>
-                </button>
+                <!-- TODO: Re-implement notification button with OneSignal integration -->
                 <button id="darkModeBtn" class="dark-mode-btn" title="Toggle Dark Mode">🌙</button>
                 <button id="refreshBtn" class="refresh-btn"><span>🔄</span></button>
             </div>
@@ -59,10 +57,7 @@
             Only refresh if needed,save running cost 🤕💰
         </div>
 
-        <!-- Notification Info -->
-        <div class="notification-info" id="notificationInfo">
-            🔔 Enable notifications to get alerts 10 minutes before any room or class changes
-        </div>
+        <!-- TODO: Re-implement notification info banner with OneSignal integration -->
 
         <!-- Quick Stats -->
         <div class="stats">
@@ -127,29 +122,11 @@
         </div>
     </div>
 
-    <!-- Notification Permission Modal -->
-    <div id="notificationModal" class="modal hidden">
-        <div class="modal-content notification-modal-content">
-            <h3>🔔 Enable Notifications</h3>
-            <div class="notification-benefits">
-                <p><strong>Get alerts 10 minutes before:</strong></p>
-                <ul>
-                    <li>✅ Any class starts</li>
-                    <li>✅ Room changes</li>
-                    <li>✅ Schedule updates</li>
-                </ul>
-                <p class="notification-note">📱 Works even when app is closed or offline!</p>
-            </div>
-            <div class="modal-actions">
-                <button id="enableNotificationBtn" class="btn-primary">Enable Notifications</button>
-                <button id="skipNotificationBtn" class="btn-secondary">Maybe Later</button>
-            </div>
-        </div>
-    </div>
+    <!-- TODO: Re-implement notification permission modal with OneSignal integration -->
 
     <!-- Scripts -->
     <script src="assets/js/db.js?v=3.1.2"></script>
-    <script src="assets/js/notifications.js?v=3.1.2"></script>
+    <!-- TODO: Re-add notifications.js when OneSignal integration is implemented -->
     <script src="assets/js/app.js?v=3.1.2"></script>
     <script>
         // Register Service Worker
