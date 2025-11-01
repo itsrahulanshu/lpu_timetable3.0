@@ -93,6 +93,28 @@
         </div>
     </div>
 
+    <!-- Welcome/Instructions Modal -->
+    <div id="welcomeModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>🎓 Welcome to LPU Schedule!</h3>
+            <div class="welcome-content">
+                <p><strong>To get your timetable:</strong></p>
+                <ol>
+                    <li>🔄 Click the <strong>refresh button</strong> (🔄) in the top-right corner</li>
+                    <li>📅 Your schedule will load automatically</li>
+                    <li>🔔 Enable notifications to get alerts before classes</li>
+                </ol>
+                <div class="instruction-note">
+                    <p>💡 <strong>Tip:</strong> The refresh button is located in the header next to the dark mode toggle</p>
+                    <p>💰 <strong>Note:</strong> Only refresh when needed to save running costs</p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button id="getStartedBtn" class="btn-primary">Got it!</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Error Modal -->
     <div id="errorModal" class="modal hidden">
         <div class="modal-content">
@@ -126,9 +148,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/db.js?v=3.1.0"></script>
-    <script src="assets/js/notifications.js?v=3.1.0"></script>
-    <script src="assets/js/app.js?v=3.1.0"></script>
+    <script src="assets/js/db.js?v=3.1.2"></script>
+    <script src="assets/js/notifications.js?v=3.1.2"></script>
+    <script src="assets/js/app.js?v=3.1.2"></script>
     <script>
         // Register Service Worker
         if ('serviceWorker' in navigator) {

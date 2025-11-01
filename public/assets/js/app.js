@@ -100,6 +100,11 @@ class TimetableApp {
             this.toggleDarkMode();
         });
 
+        // Welcome modal button
+        document.getElementById('getStartedBtn').addEventListener('click', () => {
+            this.hideWelcomeModal();
+        });
+
         // Error modal
         document.getElementById('closeModal').addEventListener('click', () => {
             this.hideErrorModal();
@@ -110,10 +115,16 @@ class TimetableApp {
             this.refreshTimetable();
         });
 
-        // Close modal on backdrop click
+        // Close modals on backdrop click
         document.getElementById('errorModal').addEventListener('click', (e) => {
             if (e.target.id === 'errorModal') {
                 this.hideErrorModal();
+            }
+        });
+
+        document.getElementById('welcomeModal').addEventListener('click', (e) => {
+            if (e.target.id === 'welcomeModal') {
+                this.hideWelcomeModal();
             }
         });
 
@@ -191,6 +202,9 @@ class TimetableApp {
                     this.timetableData = [];
                     this.renderTimetable();
                     this.updateStats();
+                    
+                    // Show welcome modal for first-time users
+                    this.showWelcomeModal();
                 }
                 return;
             }
@@ -270,7 +284,15 @@ class TimetableApp {
             }
             
             if (!isAutoRefresh) {
-                this.showErrorModal('Failed to load fresh data. Click refresh button to fetch latest timetable.');
+                // Check if this is a first-time user (no cached data)
+                const cachedDataCheck = await this.db.loadTimetable();
+                if (!cachedDataCheck || !cachedDataCheck.data || cachedDataCheck.data.length === 0) {
+                    // First-time user - show welcome modal instead of error
+                    this.showWelcomeModal();
+                } else {
+                    // Returning user with cached data - show error modal
+                    this.showErrorModal('Failed to load fresh data. Click refresh button to fetch latest timetable.');
+                }
             }
         }
     }
@@ -472,12 +494,14 @@ class TimetableApp {
         
         element.innerHTML = `
             <div class="class-header">
-                <div class="class-time">${classItem.AttendanceTime}</div>
+                <div class="class-time-container">
+                    <div class="class-time">${classItem.AttendanceTime}</div>
+                    <span class="class-type ${classInfo.type.toLowerCase()}">${classInfo.type}</span>
+                </div>
                 <div class="class-info">
                     <div class="class-title">
                         <div class="course-code">${classInfo.course}</div>
                         <div class="course-name">${classInfo.courseName}</div>
-                        <span class="class-type ${classInfo.type.toLowerCase()}">${classInfo.type}</span>
                     </div>
                 </div>
             </div>
@@ -495,7 +519,6 @@ class TimetableApp {
                             <div class="room-label">Room</div>
                         </div>
                         ${classInfo.group ? `<div class="location-separator"></div>
-                        <span class="group-inline-icon">👥</span>
                         <div class="group-inline-info">
                             <div class="group-number">${classInfo.group === 'All' ? 'ALL' : classInfo.group}</div>
                             <div class="group-label">Group</div>
@@ -509,7 +532,6 @@ class TimetableApp {
                             <div class="room-label">Location</div>
                         </div>
                         ${classInfo.group ? `<div class="location-separator"></div>
-                        <span class="group-inline-icon">👥</span>
                         <div class="group-inline-info">
                             <div class="group-number">${classInfo.group === 'All' ? 'ALL' : classInfo.group}</div>
                             <div class="group-label">Group</div>
@@ -747,6 +769,14 @@ class TimetableApp {
 
     hideErrorModal() {
         document.getElementById('errorModal').classList.add('hidden');
+    }
+
+    showWelcomeModal() {
+        document.getElementById('welcomeModal').classList.remove('hidden');
+    }
+
+    hideWelcomeModal() {
+        document.getElementById('welcomeModal').classList.add('hidden');
     }
 
     // PWA Functions

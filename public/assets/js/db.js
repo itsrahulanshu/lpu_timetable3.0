@@ -191,18 +191,17 @@ class TimetableDB {
         return new Promise((resolve, reject) => {
             const transaction = this.db.transaction(['notifications'], 'readonly');
             const store = transaction.objectStore('notifications');
-            const index = store.index('notified');
-            const request = index.getAll(false);
+            const request = store.getAll();
 
             request.onsuccess = () => {
                 const now = new Date();
                 const currentDay = now.toLocaleDateString('en-US', { weekday: 'long' });
                 const currentTime = now.getHours() * 60 + now.getMinutes();
 
-                // Filter for classes happening today, 10 minutes from now
+                // Filter for classes happening today, 10 minutes from now, and not yet notified
                 const pending = request.result.filter(notif => {
                     const timeDiff = notif.startMinutes - currentTime;
-                    return notif.day === currentDay && timeDiff > 0 && timeDiff <= 10;
+                    return !notif.notified && notif.day === currentDay && timeDiff > 0 && timeDiff <= 10;
                 });
 
                 resolve(pending);

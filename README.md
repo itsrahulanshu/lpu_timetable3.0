@@ -1,52 +1,87 @@
-# 🎓 LPU Timetable PWA
+# LPU Timetable PWA 📚
 
-Progressive Web App for LPU students with offline support and smart notifications.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/itsrahulanshu/timelpu)
+A modern Progressive Web App for LPU students to access their timetables with offline support, smart notifications, and automatic updates.
 
 ## ✨ Features
 
-- 🔄 Smart Refresh (10-min cooldown + Auto 8 AM IST)
-- 📱 Offline Support (IndexedDB + Service Worker)
-- 🔔 Notifications (10-min alerts, room changes)
-- �� Dark Mode
-- ⚡ Fast & Lightweight
+- **📱 Progressive Web App** - Install on any device, works like a native app
+- **🔄 Smart Auto-Refresh** - Automatically updates timetable data
+- **📴 Offline Support** - Access your timetable even without internet
+- **🔔 Smart Notifications** - Get notified about upcoming classes
+- **🌙 Dark Mode** - Easy on the eyes with automatic theme switching
+- **⚡ Fast & Responsive** - Optimized for all screen sizes
 
 ## 🚀 Quick Start
 
-```bash
-# Clone & Install
-git clone https://github.com/itsrahulanshu/timelpu.git
-cd timelpu
-npm install
+### Prerequisites
+- Node.js 18+ 
+- LPU UMS credentials
 
-# Configure
-cp .env.example .env
-# Edit .env with: UMS_USERNAME, UMS_PASSWORD, ANTICAPTCHA_API_KEY
+### Installation
 
-# Run
-npm start
-# Open http://localhost:3000
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/itsrahulanshu/timelpu.git
+   cd timelpu
+   ```
 
-## ☁️ Deploy to Vercel
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-1. Push to GitHub
-2. Import on [Vercel](https://vercel.com/new)
-3. Add environment variables
+3. **Set up environment variables**
+   ```bash
+   cp .env.example .env
+   # Edit .env with your credentials
+   ```
+
+4. **Start the development server**
+   ```bash
+   npm start
+   ```
+
+5. **Open your browser**
+   ```
+   http://localhost:3001
+   ```
+
+## 🌐 Deploy to Vercel
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/itsrahulanshu/timelpu)
+
+1. Click the deploy button above
+2. Connect your GitHub account
+3. Add environment variables in Vercel dashboard
 4. Deploy!
 
-## 📖 Usage
+## 📱 Usage
 
-1. 🔄 Click Refresh to fetch timetable
-2. 🔔 Enable Notifications for alerts
-3. 🌙 Toggle Dark Mode
-4. 📱 Install as PWA
+1. **First Visit**: Enter your LPU registration number
+2. **Install PWA**: Click "Add to Home Screen" when prompted
+3. **Enable Notifications**: Allow notifications for class reminders
+4. **Enjoy**: Your timetable updates automatically!
 
-## 🔧 Tech
+## 🛠️ Tech Stack
 
-Express.js • IndexedDB • Service Workers • Web Notifications • Vercel
+- **Frontend**: Vanilla JavaScript, CSS3, HTML5
+- **Backend**: Node.js, Express.js
+- **Deployment**: Vercel (Serverless)
+- **APIs**: LPU UMS Integration
+- **PWA**: Service Worker, Web App Manifest
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## ⭐ Support
+
+If this project helped you, please give it a ⭐ on GitHub!
 
 ---
 
-Made with ❤️ for LPU students
+Made with ❤️ for LPU students by [@itsrahulanshu](https://github.com/itsrahulanshu)
