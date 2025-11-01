@@ -195,12 +195,13 @@ class TimetableApp {
             
             if (response.status === 404) {
                 console.log('📂 No data available - user needs to refresh');
+                // Always hide loading screen when no data is available
+                this.hideLoadingScreen();
+                this.timetableData = [];
+                this.renderTimetable();
+                this.updateStats();
+                
                 if (!isAutoRefresh) {
-                    this.hideLoadingScreen();
-                    this.timetableData = [];
-                    this.renderTimetable();
-                    this.updateStats();
-                    
                     // Show welcome modal for first-time users
                     this.showWelcomeModal();
                 }
