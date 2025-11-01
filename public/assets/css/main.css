@@ -42,7 +42,7 @@ body{background:#e2e8f0;padding:20px}
 .day-filter::-webkit-scrollbar{height:3px}
 .day-filter::-webkit-scrollbar-track{background:var(--border-color);border-radius:3px}
 .day-filter::-webkit-scrollbar-thumb{background:var(--text-secondary);border-radius:3px}
-.day-btn{background:var(--card-bg);border:1px solid var(--border-color);padding:8px 12px;border-radius:10px;font-size:13px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:all 0.2s;white-space:nowrap;flex-shrink:0}
+.day-btn{background:var(--card-bg);border:1px solid var(--border-color);padding:12px 16px;border-radius:12px;font-size:16px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:all 0.2s;white-space:nowrap;flex-shrink:0;min-height:44px;display:flex;align-items:center;justify-content:center}
 .day-btn:hover{border-color:var(--accent-primary);color:var(--accent-primary)}
 .day-btn.active{background:var(--accent-primary);border-color:var(--accent-primary);color:#fff}
 .timetable{display:flex;flex-direction:column;gap:12px;margin-bottom:100px;padding-bottom:16px}
@@ -210,7 +210,7 @@ body{background:#e2e8f0;padding:20px}
 .stat-item{padding:8px}
 .stat-number{font-size:clamp(20px,6vw,28px)}
 .day-filter{gap:4px;margin-bottom:12px}
-.day-btn{padding:6px 8px;font-size:12px;min-width:44px}
+.day-btn{padding:10px 14px;font-size:15px;min-width:50px}
 .class-item{padding:10px;margin-bottom:6px}
 .class-header{gap:8px;margin-bottom:6px}
 .class-time{padding:4px 8px;font-size:11px;min-width:65px}
