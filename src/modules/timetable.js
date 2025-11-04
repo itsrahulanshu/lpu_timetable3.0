@@ -10,18 +10,21 @@ class TimetableManager {
         });
         
         // Course data
-        this.COURSE_DATA = [
-            {"CourseCode": "CAP100M", "CourseName": "PROGRAMME ORIENTATION"},
-            {"CourseCode": "CAP443", "CourseName": "LINUX AND SHELL SCRIPTING - LAB"},
-            {"CourseCode": "CAP455", "CourseName": "OBJECT ORIENTED PROGRAMMING USING C++"},
-            {"CourseCode": "CAP476", "CourseName": "DATA COMMUNICATION AND NETWORKING"},
-            {"CourseCode": "CAP478", "CourseName": "DATA COMMUNICATION AND NETWORKING-LABORATORY"},
-            {"CourseCode": "CAP570", "CourseName": "ADVANCED DATABASE TECHNIQUES"},
-            {"CourseCode": "CAP598", "CourseName": "SOFTWARE ENGINEERING AND PROJECT MANAGEMENT"},
-            {"CourseCode": "PEA515", "CourseName": "ANALYTICAL SKILLS-I"},
-            {"CourseCode": "PEL544", "CourseName": "CORPORATE COMMUNICATION SKILLS"},
-            {"CourseCode": "PETV67", "CourseName": "BUILDING WEALTH"}
-        ];
+ this.COURSE_DATA = [
+    {"CourseCode": "CAP100M", "CourseName": "PROGRAMME ORIENTATION"},
+    {"CourseCode": "CAP443", "CourseName": "LINUX AND SHELL SCRIPTING - LAB"},
+    {"CourseCode": "CAP455", "CourseName": "OBJECT ORIENTED PROGRAMMING USING C++"},
+    {"CourseCode": "CAP476", "CourseName": "DATA COMMUNICATION AND NETWORKING"},
+    {"CourseCode": "CAP477", "CourseName": "ADVANCED INTERNET PROGRAMMING USING JAVA"},
+    {"CourseCode": "CAP478", "CourseName": "DATA COMMUNICATION AND NETWORKING - LABORATORY"},
+    {"CourseCode": "CAP570", "CourseName": "ADVANCED DATABASE TECHNIQUES"},
+    {"CourseCode": "CAP598", "CourseName": "SOFTWARE ENGINEERING AND PROJECT MANAGEMENT"},
+    {"CourseCode": "CAC203", "CourseName": "AI ASSISTED CYBER SECURITY FUNDAMENTAL"},
+    {"CourseCode": "MTH403", "CourseName": "MATHEMATICAL FOUNDATION FOR COMPUTER SCIENCE"},
+    {"CourseCode": "PEA515", "CourseName": "ANALYTICAL SKILLS-I"},
+    {"CourseCode": "PEL544", "CourseName": "CORPORATE COMMUNICATION SKILLS"},
+    {"CourseCode": "PETV67", "CourseName": "BUILDING WEALTH"}
+];
     }
 
     getCourseName(courseCode) {
