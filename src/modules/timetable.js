@@ -23,7 +23,15 @@ class TimetableManager {
     {"CourseCode": "MTH403", "CourseName": "MATHEMATICAL FOUNDATION FOR COMPUTER SCIENCE"},
     {"CourseCode": "PEA515", "CourseName": "ANALYTICAL SKILLS-I"},
     {"CourseCode": "PEL544", "CourseName": "CORPORATE COMMUNICATION SKILLS"},
-    {"CourseCode": "PETV67", "CourseName": "BUILDING WEALTH"}
+    {"CourseCode": "PETV67", "CourseName": "BUILDING WEALTH"},
+     { "CourseCode": "CAP477", "CourseName": "PROGRAMMING IN JAVA" },
+  { "CourseCode": "CAP555", "CourseName": "MACHINE LEARNING USING PYTHON" },
+  { "CourseCode": "CAP599", "CourseName": "NEXT GEN COMPUTING PROJECT I" },
+  { "CourseCode": "CAP770", "CourseName": "ADVANCED DATA STRUCTURES" },
+  { "CourseCode": "CAP777", "CourseName": "WEB DEVELOPMENT USING PHP" },
+  { "CourseCode": "MTH404", "CourseName": "DISCRETE AND COMPUTATIONAL MATHEMATICS" },
+  { "CourseCode": "PEA516", "CourseName": "ANALYTICAL SKILLS-II" },
+  { "CourseCode": "PES514", "CourseName": "SOFT SKILLS-I" }
 ];
     }
 
