@@ -11,27 +11,24 @@ class TimetableManager {
         
         // Course data
  this.COURSE_DATA = [
-    {"CourseCode": "CAP100M", "CourseName": "PROGRAMME ORIENTATION"},
-    {"CourseCode": "CAP443", "CourseName": "LINUX AND SHELL SCRIPTING - LAB"},
-    {"CourseCode": "CAP455", "CourseName": "OBJECT ORIENTED PROGRAMMING USING C++"},
-    {"CourseCode": "CAP476", "CourseName": "DATA COMMUNICATION AND NETWORKING"},
-    {"CourseCode": "CAP477", "CourseName": "ADVANCED INTERNET PROGRAMMING USING JAVA"},
-    {"CourseCode": "CAP478", "CourseName": "DATA COMMUNICATION AND NETWORKING - LABORATORY"},
-    {"CourseCode": "CAP570", "CourseName": "ADVANCED DATABASE TECHNIQUES"},
-    {"CourseCode": "CAP598", "CourseName": "SOFTWARE ENGINEERING AND PROJECT MANAGEMENT"},
-    {"CourseCode": "CAC203", "CourseName": "AI ASSISTED CYBER SECURITY FUNDAMENTAL"},
-    {"CourseCode": "MTH403", "CourseName": "MATHEMATICAL FOUNDATION FOR COMPUTER SCIENCE"},
-    {"CourseCode": "PEA515", "CourseName": "ANALYTICAL SKILLS-I"},
-    {"CourseCode": "PEL544", "CourseName": "CORPORATE COMMUNICATION SKILLS"},
-    {"CourseCode": "PETV67", "CourseName": "BUILDING WEALTH"},
-     { "CourseCode": "CAP477", "CourseName": "PROGRAMMING IN JAVA" },
-  { "CourseCode": "CAP555", "CourseName": "MACHINE LEARNING USING PYTHON" },
+  { "CourseCode": "CAP100M", "CourseName": "PROGRAMME ORIENTATION" },
+  { "CourseCode": "CAP443", "CourseName": "LINUX AND SHELL SCRIPTING - LAB" },
+  { "CourseCode": "CAP455", "CourseName": "OBJECT ORIENTED PROGRAMMING USING C++" },
+  { "CourseCode": "CAP476", "CourseName": "DATA COMMUNICATION AND NETWORKING" },
+  { "CourseCode": "CAP477A", "CourseName": "ADVANCED INTERNET PROGRAMMING USING JAVA" },
+  { "CourseCode": "CAP477", "CourseName": "PROGRAMMING IN JAVA" },
+  { "CourseCode": "CAP478", "CourseName": "DATA COMMUNICATION AND NETWORKING - LABORATORY" },
+  { "CourseCode": "CAP570", "CourseName": "ADVANCED DATABASE TECHNIQUES" },
+  { "CourseCode": "CAP598", "CourseName": "SOFTWARE ENGINEERING AND PROJECT MANAGEMENT" },
   { "CourseCode": "CAP599", "CourseName": "NEXT GEN COMPUTING PROJECT I" },
-  { "CourseCode": "CAP770", "CourseName": "ADVANCED DATA STRUCTURES" },
-  { "CourseCode": "CAP777", "CourseName": "WEB DEVELOPMENT USING PHP" },
+  { "CourseCode": "CAC203", "CourseName": "AI ASSISTED CYBER SECURITY FUNDAMENTAL" },
+  { "CourseCode": "MTH403", "CourseName": "MATHEMATICAL FOUNDATION FOR COMPUTER SCIENCE" },
   { "CourseCode": "MTH404", "CourseName": "DISCRETE AND COMPUTATIONAL MATHEMATICS" },
+  { "CourseCode": "PEA515", "CourseName": "ANALYTICAL SKILLS-I" },
   { "CourseCode": "PEA516", "CourseName": "ANALYTICAL SKILLS-II" },
-  { "CourseCode": "PES514", "CourseName": "SOFT SKILLS-I" }
+  { "CourseCode": "PEL544", "CourseName": "CORPORATE COMMUNICATION SKILLS" },
+  { "CourseCode": "PES514", "CourseName": "SOFT SKILLS-I" },
+  { "CourseCode": "PETV67", "CourseName": "BUILDING WEALTH" }
 ];
     }
 
